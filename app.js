@@ -16,9 +16,7 @@ app.use(cors()); // Allow cross-origin requests
 
 // MongoDB connection
 mongoose.connect(DB_URI_FINAL, {
-    useNewUrlParser: true,
     serverSelectionTimeoutMS: 60000,
-    useUnifiedTopology: true,
 }).then(() => console.log('Connected to MongoDB'))
   .catch(err => console.error('Database connection error:', err));
 
