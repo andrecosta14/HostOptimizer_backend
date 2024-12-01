@@ -25,6 +25,7 @@ app.get('/', (req, res) => {
     res.send(
         '<h1>HostOptimizer</h1>\n' +
         '<p>ROUTES:</p>\n' +
+        '<p>BASE URL:https://hostoptimizer.onrender.com/</p>\n' +
         '\n' +
         '<ul>\n' +
         '  <li><a href="/configuracao">GET /configuracao</a> - Todos os alojamentos</li>\n' +
