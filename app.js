@@ -27,28 +27,28 @@ app.get('/', (req, res) => {
         '<p>BASE URL:https://hostoptimizer.onrender.com/</p>\n' +
         '\n' +
         '<ul>\n' +
-        '  <li><a href="/configuracao">GET /configuracao</a> - Todos os alojamentos</li>\n' +
-        '  <li><a href="/configuracao/:id">GET /configuracao/:id</a> - Detalhes do alojamento</li>\n' +
-        '  <li><a href="/configuracao">POST /configuracao</a> - Criar alojamento</li>\n' +
-        '  <li><a href="/configuracao/:id">PUT /configuracao/:id</a> - Atualizar alojamento</li>\n' +
-        '  <li><a href="/configuracao/:id">DELETE /configuracao/:id</a> - Apagar alojamento</li>\n' +
+        '  <li><a href="/api/v1/configuracao">GET /configuracao</a> - Todos os alojamentos</li>\n' +
+        '  <li><a href="/api/v1/configuracao/:id">GET /configuracao/:id</a> - Detalhes do alojamento</li>\n' +
+        '  <li><a href="/api/v1/configuracao">POST /configuracao</a> - Criar alojamento</li>\n' +
+        '  <li><a href="/api/v1/configuracao/:id">PUT /configuracao/:id</a> - Atualizar alojamento</li>\n' +
+        '  <li><a href="/api/v1/configuracao/:id">DELETE /configuracao/:id</a> - Apagar alojamento</li>\n' +
         '</ul>' +
         '<ul>' +
-        '<li><a href="/avaliacao">GET /avaliacao</a> - Todas as avaliações</li>' +
-        '<li><a href="/avaliacao/:id">GET /avaliacao/:id</a> - Detalhes da avaliação</li>' +
-        '<li><a href="/avaliacao">POST /avaliacao</a> - Criar avaliação</li>' +
-        '<li><a href="/avaliacao/:id">PUT /avaliacao/:id</a> - Atualizar avaliação</li>' +
-        '<li><a href="/avaliacao/:id">DELETE /avaliacao/:id</a> - Apagar avaliação</li>' +
+        '<li><a href="/api/v1/avaliacao">GET /avaliacao</a> - Todas as avaliações</li>' +
+        '<li><a href="/api/v1/avaliacao/:id">GET /avaliacao/:id</a> - Detalhes da avaliação</li>' +
+        '<li><a href="/api/v1/avaliacao">POST /avaliacao</a> - Criar avaliação</li>' +
+        '<li><a href="/api/v1/avaliacao/:id">PUT /avaliacao/:id</a> - Atualizar avaliação</li>' +
+        '<li><a href="/api/v1/avaliacao/:id">DELETE /avaliacao/:id</a> - Apagar avaliação</li>' +
         '</ul>' +
         '<ul>'+
-        '  <li><a href="/users">GET /users</a> - Todos os utilizadores</li>\n' +
-        '  <li><a href="/users/:id">GET /users/:id</a> - Detalhes do utilizador</li>\n' +
-        '  <li><a href="/users">POST /users</a> - Criar utilizador</li>\n' +
-        '  <li><a href="/users/:id">PUT /users/:id</a> - Atualizar utilizador</li>\n' +
-        '  <li><a href="/users/:id">DELETE /users/:id</a> - Apagar utilizador</li>\n' +
+        '  <li><a href="/api/v1/users">GET /users</a> - Todos os utilizadores</li>\n' +
+        '  <li><a href="/api/v1/users/:id">GET /users/:id</a> - Detalhes do utilizador</li>\n' +
+        '  <li><a href="/api/v1/users">POST /users</a> - Criar utilizador</li>\n' +
+        '  <li><a href="/api/v1/users/:id">PUT /users/:id</a> - Atualizar utilizador</li>\n' +
+        '  <li><a href="/api/v1/users/:id">DELETE /users/:id</a> - Apagar utilizador</li>\n' +
 
-        '<li><a href="/login">POST /login</a> - User login to authenticate and receive a token</li>'+
-        '<li><a href="/user">GET /user</a> - Retrieve user information (requires valid token)</li>'+
+        '<li><a href="/api/v1/login">POST /login</a> - User login to authenticate and receive a token</li>'+
+        '<li><a href="/api/v1/user">GET /user</a> - Retrieve user information (requires valid token)</li>'+
         '</ul>'
     );
 });
