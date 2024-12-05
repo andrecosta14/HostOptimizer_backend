@@ -40,20 +40,10 @@ class UserController {
     }
   }
 
-  async deleteUser(req, res) {
-    try {
-      const user = await userService.deleteUser(req.params.id);
-      if (!user) return res.status(404).json({ message: 'User not found' });
-      res.status(200).json({ message: 'User deleted' });
-    } catch (error) {
-      res.status(500).json({ error: error.message });
-    }
-  }
-
   async updateUserRole(req, res) {
     try {
       const { role } = req.body;
-      if (!role || !['user', 'admin'].includes(role)) {
+      if (!role || !['user', 'proprietario', 'admin'].includes(role)) {
         return res.status(400).json({ message: 'Invalid role specified' });
       }
 
@@ -61,6 +51,16 @@ class UserController {
       if (!user) return res.status(404).json({ message: 'User not found' });
 
       res.status(200).json({ message: 'Role updated successfully', user });
+    } catch (error) {
+      res.status(500).json({ error: error.message });
+    }
+  }
+
+  async deleteUser(req, res) {
+    try {
+      const user = await userService.deleteUser(req.params.id);
+      if (!user) return res.status(404).json({ message: 'User not found' });
+      res.status(200).json({ message: 'User deleted' });
     } catch (error) {
       res.status(500).json({ error: error.message });
     }
