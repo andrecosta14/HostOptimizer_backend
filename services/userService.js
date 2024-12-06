@@ -1,4 +1,5 @@
 const userRepository = require('../data/userRepository');
+const {hasRole} = require("../middlewares/authMiddleware");
 
 class UserService {
   async getAllUsers() {
