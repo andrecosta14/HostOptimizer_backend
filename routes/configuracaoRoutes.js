@@ -1,16 +1,18 @@
 const express = require('express');
 const configuracaoController = require('../controllers/configuracaoController');
-const {hasRole} = require("../middlewares/authMiddleware");
+const { hasRole } = require("../middlewares/authMiddleware");
+const { verifyToken } = require("../utils/authUtils");
 
 const router = express.Router();
 
-// Protect routes for `proprietario` and `admin` roles
-router.use(hasRole(['proprietario', 'admin']));
+// Ensure token verification happens before any role checking or controller logic
+router.use(verifyToken);
 
-router.post('/', hasRole('proprietario', 'admin'), configuracaoController.create); // Create a new configuration
-router.get('/', hasRole('proprietario', 'admin'), configuracaoController.getAll); // Get all configurations
-router.get('/:id', hasRole('proprietario', 'admin'), configuracaoController.getById); // Get a single configuration
-router.put('/:id',hasRole('proprietario', 'admin'), configuracaoController.update); // Update a configuration
-router.delete('/:id',hasRole('proprietario', 'admin'), configuracaoController.delete); // Delete a configuration
+// Define routes with role-based access
+router.post('/', hasRole('proprietario', 'admin'), configuracaoController.create);
+router.get('/', hasRole('proprietario', 'admin', 'user'), configuracaoController.getAll);
+router.get('/:id', hasRole('proprietario', 'admin', 'user'), configuracaoController.getById);
+router.put('/:id', hasRole('proprietario', 'admin'), configuracaoController.update);
+router.delete('/:id', hasRole('proprietario', 'admin'), configuracaoController.delete);
 
 module.exports = router;
