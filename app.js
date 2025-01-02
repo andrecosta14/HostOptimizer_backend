@@ -12,7 +12,7 @@ require('dotenv').config();
 
 const app = express();
 const BASE_URL = '';
-const DB_URI_FINAL = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.q6gp89z.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0`;
+const DB_URI_FINAL = 'mongodb+srv://acosta:GMlpWdxr5rVWdXlT@cluster0.q6gp89z.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 const PORT = 3000;
 
 app.use(express.json());
