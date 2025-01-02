@@ -1,6 +1,7 @@
 const configuracaoService = require('../services/configuracaoService');
 
 class ConfiguracaoController {
+
   async create(req, res) {
     try {
       const { userId } = req.user; // Extract userId from authenticated request
@@ -46,6 +47,15 @@ class ConfiguracaoController {
       const { id } = req.params;
       await configuracaoService.deleteConfiguracao(id);
       res.status(200).json({ message: 'Configuração excluída com sucesso.' });
+    } catch (error) {
+      res.status(404).json({ error: error.message });
+    }
+  }
+
+  async getParameters(req, res) {
+    try {
+      const parameters = await configuracaoService.getParameters();
+      res.status(200).json(parameters);
     } catch (error) {
       res.status(404).json({ error: error.message });
     }
