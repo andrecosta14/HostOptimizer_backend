@@ -6,13 +6,14 @@ const { verifyToken } = require("../utils/authUtils");
 const router = express.Router();
 
 // Ensure token verification happens before any role checking or controller logic
-router.use(verifyToken);
+// router.use(verifyToken);
 
-// Define routes with role-based access
-router.post('/', hasRole('proprietario', 'admin'), configuracaoController.create);
-router.get('/', hasRole('proprietario', 'admin', 'user'), configuracaoController.getAll);
-router.get('/:id', hasRole('proprietario', 'admin', 'user'), configuracaoController.getById);
-router.put('/:id', hasRole('proprietario', 'admin'), configuracaoController.update);
-router.delete('/:id', hasRole('proprietario', 'admin'), configuracaoController.delete);
+// Define routes with role-based access hasRole('sommelier', 'admin'),
+router.post('/deploy-atividade', configuracaoController.create);
+router.get('/atividade/all', configuracaoController.getAll);
+router.get('/json-params-atividade', configuracaoController.getParameters);
+router.get('/:id', configuracaoController.getById);
+router.put('/:id', configuracaoController.update);
+router.delete('/:id', configuracaoController.delete);
 
 module.exports = router;
