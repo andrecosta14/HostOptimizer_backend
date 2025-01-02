@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const userRoutes = require('./routes/userRoutes');
 const avaliacaoRoutes = require('./routes/avaliacaoRoutes');
+const feedbackRoutes = require('./routes/feedbackRoutes');
 const authRoutes = require('./routes/authRoutes');
 const configuracaoRoutes = require('./routes/configuracaoRoutes');
 const cors = require('cors');
@@ -34,14 +35,14 @@ app.use(cors()); // Allow cross-origin requests
 
         app.use(`${BASE_URL}/users`, userRoutes);
         app.use(`${BASE_URL}`, authRoutes);
-        app.use(`${BASE_URL}/configuracao`, configuracaoRoutes);
+        app.use(`${BASE_URL}`, configuracaoRoutes);
         app.use(`${BASE_URL}/avaliacao`, avaliacaoRoutes);
+        app.use(`${BASE_URL}/feedback`, feedbackRoutes);
 
         // Start the server only after the database connection
 
         app.listen(PORT, () => {
-            console.log(`Server is running http://localhost:${PORT}`);
-            console.log(`Server: http://localhost:3000`);
+            console.log(`Server is running at http://localhost:${PORT}`);
         });
 
     } catch (err) {
