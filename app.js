@@ -11,7 +11,7 @@ const welcomePage = require("./utils/welcomePageAPI");
 require('dotenv').config();
 
 const app = express();
-const BASE_URL = '';
+const BASE_URL = '/api/v1/';
 const DB_URI_FINAL = 'mongodb+srv://acosta:GMlpWdxr5rVWdXlT@cluster0.q6gp89z.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 const PORT = 3000;
 
@@ -33,11 +33,11 @@ app.use(cors()); // Allow cross-origin requests
             res.send(welcomePage['welcomePage']);
         });
 
-        app.use(`${BASE_URL}/users`, userRoutes);
+        app.use(`${BASE_URL}`, userRoutes);
         app.use(`${BASE_URL}`, authRoutes);
         app.use(`${BASE_URL}`, configuracaoRoutes);
-        app.use(`${BASE_URL}/avaliacao`, avaliacaoRoutes);
-        app.use(`${BASE_URL}/feedback`, feedbackRoutes);
+        app.use(`${BASE_URL}`, avaliacaoRoutes);
+        app.use(`${BASE_URL}`, feedbackRoutes);
 
         // Start the server only after the database connection
 
