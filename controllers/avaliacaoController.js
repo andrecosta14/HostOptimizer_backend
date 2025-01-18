@@ -1,12 +1,10 @@
 const avaliacaoService = require('../services/avaliacaoService');
 
 class AvaliacaoController {
-
     async create(req, res) {
         try {
-            const { userId } = req.user; // Extract userId from authenticated request
-            const data = { ...req.body, userId };
-            const avaliacao = await data.create(data);
+            const data = { ...req.body };
+            const avaliacao = await avaliacaoService.createAvaliacao(data);
             res.status(201).json(avaliacao);
         } catch (error) {
             res.status(500).json({ error: error.message });
@@ -14,10 +12,10 @@ class AvaliacaoController {
     }
 
     async getAll(req, res) {
-        try{
-            const avaliacoes =  await avaliacaoService.getAllAvaliacoes();
+        try {
+            const avaliacoes = await avaliacaoService.getAllAvaliacoes();
             res.status(200).json(avaliacoes);
-        }catch(error){
+        } catch (error) {
             res.status(500).json({ error: error.message });
         }
     }
@@ -52,6 +50,5 @@ class AvaliacaoController {
         }
     }
 }
-
 
 module.exports = new AvaliacaoController();
